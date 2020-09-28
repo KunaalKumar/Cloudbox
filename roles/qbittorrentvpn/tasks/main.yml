@@ -3,7 +3,7 @@
   include_role:
     name: cloudflare-dns
   vars:
-    record: qbittorrentvpn
+    subdomain: qbittorrentvpn
   when: cloudflare_enabled
 
 - name: Stop and remove any existing container
@@ -25,7 +25,6 @@
     - "{{ downloads.torrents }}/qbittorrentvpn/incoming"
     - "{{ downloads.torrents }}/qbittorrentvpn/watched"
     - "{{ downloads.torrents }}/qbittorrentvpn/torrents"
-  when: (torrents_downloads_path is defined)|default(false)
 
 - name: Set default_volumes variable
   set_fact:
@@ -48,12 +47,20 @@
       TZ: "{{ tz }}"
       PUID: "{{ uid }}"
       PGID: "{{ gid }}"
+      STRICT_PORT_FORWARD: "yes"
       VIRTUAL_HOST: "qbittorrentvpn.{{ user.domain }}"
       VIRTUAL_PORT: "8080"
       LETSENCRYPT_HOST: "qbittorrentvpn.{{ user.domain }}"
       LETSENCRYPT_EMAIL: "{{ user.email }}"
       UMASK_SET: "002"
       NAME_SERVERS: "209.222.18.222,84.200.69.80,37.235.1.174,1.1.1.1,209.222.18.218,37.235.1.177,84.200.70.40,1.0.0.1"
+      VPN_ENABLED: "yes"
+      VPN_USER: "{{ vpn.user }}"
+      VPN_PASS: "{{ vpn.pass }}"
+      VPN_PROV: "{{ vpn.prov }}"
+      LAN_NETWORK: "172.18.0.1/16"
+      WEBUI_PORT: "8080"
+      ENABLE_PRIVOXY: "no"
     volumes: "{{ default_volumes + torrents_downloads_path|default([]) }}"
     labels:
       "com.github.cloudbox.cloudbox_managed": "true"

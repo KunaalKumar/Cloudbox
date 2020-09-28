@@ -14,4 +14,8 @@ pushover:
   app_token:
   user_key:
   priority:
+vpn:
+  user:
+  pass:
+  prov:
 apprise:
