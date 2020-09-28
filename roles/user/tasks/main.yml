@@ -65,7 +65,7 @@
 
   - name: "Clone Cloudbox project"
     git:
-      repo: "https://github.com/cloudbox/cloudbox.git"
+      repo: "https://github.com/KunaalKumar/Cloudbox"
       dest: "{{ new_home_path }}/cloudbox/"
       version: "{{ git_branch.stdout }}"
       clone: yes
