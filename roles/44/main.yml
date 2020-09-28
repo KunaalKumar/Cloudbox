@@ -1,0 +1,7 @@
+---
+
+- name: Enable sarotate service
+  shell: "scripts/sarotate.sh"
+
+- name: Setup teamdrive services for mergersfs
+  shell: "scripts/tip_44.sh"
