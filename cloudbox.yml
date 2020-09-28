@@ -31,10 +31,10 @@
     - { role: ombi, tags: ['cloudbox', 'mediabox', 'ombi'] }
     - { role: plex_autoscan, tags: ['cloudbox', 'mediabox', 'plex_autoscan'] }
     - { role: portainer, tags: ['cloudbox', 'feederbox', 'portainer'] }
-    - { role: organizr, tags: ['cloudbox', 'feederbox', 'organizr'] }
+    - { role: organizr, tags: ['feederbox', 'organizr'] }
     - { role: cloudplow, tags: ['cloudbox', 'feederbox', 'cloudplow'], when: ['use_remote'] }
     - { role: nzbget, tags: ['cloudbox', 'feederbox', 'nzbget'], when: ['use_nzbs'] }
-    - { role: rutorrent, tags: ['cloudbox', 'feederbox', 'rutorrent'], when: ['use_torrents'] }
+    - { role: rutorrent, tags: ['feederbox', 'rutorrent'], when: ['use_torrents'] }
     - { role: jackett, tags: ['cloudbox', 'feederbox', 'jackett'], when: ['use_torrents'] }
     - { role: nzbhydra2, tags: ['cloudbox', 'feederbox', 'nzbhydra2'], when: ['use_nzbs'] }
     - { role: sonarr, tags: ['cloudbox', 'feederbox', 'sonarr'] }
