@@ -1,7 +1,9 @@
 #/bin/bash
+cd /mnt
+sudo mkdir -m 775 team-movies team-movies4k team-tv team-tv4k team-music
 cd /mnt/remote
-cp team* /etc/systemd/system/
-cp merger* /etc/systemd/system/
+sudo cp team* /etc/systemd/system/
+sudo cp merger* /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl restart team*
 sudo systemctl enable team*
