@@ -1,6 +1,7 @@
 #/bin/bash
 cd /mnt
 sudo mkdir -m 775 team-movies team-movies4k team-tv team-tv4k team-music
+sudo chown -R kunaal:kunaal team*
 cd /mnt/remote
 sudo cp team* /etc/systemd/system/
 sudo cp merger* /etc/systemd/system/
